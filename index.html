@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="it" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>FIRMA UNIFI</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+</head>
+
+<body>
+
+  <script type="text/javascript">
+    var iDati = {
+      "nome": "",
+      "cognome": "",
+      "ruolo": "",
+      "struttura": "",
+      "telefono": "",
+      "indirizzo1": "",
+      "indirizzo2": "",
+    };
+  </script>
+
+  <form>
+    <div class="textinput">
+      <label for="nome">Nome</label>
+      <input type="text" id="input-nome" name="nome" value="Pinco">
+    </div>
+    <div class="textinput">
+      <label for="cognome">Cognome</label>
+      <input type="text" id="input-cognome" name="cognome" value="Pallino">
+    </div>
+    <div class="textinput">
+      <label for="ruolo">Ruolo</label>
+      <input type="text" id="input-ruolo" name="ruolo" value="Responsabile">
+    </div>
+    <div class="textinput">
+      <label for="struttura">Ruolo</label>
+      <input type="text" id="input-struttura" name="struttura" value="Unità di processo miglioramento delle procedure">
+    </div>
+    <div class="textinput">
+      <label for="telefono">Telefono</label>
+      <input type="text" id="input-telefono" name="telefono" value="055274245">
+    </div>
+    <div class="textinput">
+      <label for="indirizzo1">Indirizzo 1</label>
+      <input type="text" id="input-indirizzo1" name="indirizzo1" value="Piazza San Marco, 4">
+    </div>
+    <div class="textinput">
+      <label for="indirizzo2">Indirizzo 2</label>
+      <input type="text" id="input-indirizzo2" name="indirizzo2" value="50121 Firenze">
+    </div>
+  </form>
+
+  <script type="text/javascript">
+    var update = function() {
+      iDati.nome = document.querySelector('#input-nome').value;
+      iDati.cognome = document.querySelector('#input-cognome').value;
+      iDati.ruolo = document.querySelector('#input-ruolo').value;
+      iDati.struttura = document.querySelector('#input-struttura').value;
+      iDati.telefono = document.querySelector('#input-telefono').value;
+      iDati.indirizzo1 = document.querySelector('#input-indirizzo1').value;
+      iDati.indirizzo2 = document.querySelector('#input-indirizzo2').value;
+    }
+  </script>
+
+  <div class="">
+    <button onClick="update()">Submit</button>
+  </div>
+  <hr>
+  <div id="output">
+    <div class="output-nome">{{nome}} {{cognome}}</div>
+    <br>
+    <div class="output-unifi"> Università <br>degli Studi di <br>Firenze</div>
+    <div class="output-excellence"> Exellence in Research</div>
+    <br>
+    <div class="outupt-mansione output-ruolo"> {{ruolo}}</div>
+    <div class="outupt-mansione output-struttura"> {{struttura}}</div>
+    <br>
+    <div class="output-address output-telefono"> {{telefono}}</div>
+    <div class="output-address output-indirizzo1"> {{indirizzo1}}</div>
+    <div class="output-address output-indirizzo2"> {{indirizzo2}}</div>
+    <div class="output-link"> <a href="https://www.unifi.it">www.unifi.it</a> </div>
+  </div>
+
+  <style media="screen">
+    #output {
+      font-family: sans-serif;
+    }
+
+    .output-nome {
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+
+    .output-unifi {
+      font-family: serif;
+      text-transform: uppercase;
+    }
+
+    .output-excellence {
+      color: darkgrey;
+      font-weight: light;
+      font-size: 0.8em;
+      font-style: italic;
+    }
+
+    .outupt-mansione {
+      font-weight: bold;
+    }
+
+    .output-address  {
+      color: #555;
+    }
+
+  </style>
+
+
+  <script type="text/javascript">
+    var app = new Vue({
+      el: '#output',
+      data: iDati
+    })
+
+    update();
+  </script>
+</body>
+
+</html>
